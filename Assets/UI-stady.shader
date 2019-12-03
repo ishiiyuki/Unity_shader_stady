@@ -106,10 +106,11 @@ Shader "UI/Stady"
                 //return color;
 
                 //二色に塗り分ける まず横線の処理をしてから　縦線の領域の処理をする　合わせることで四角形が表示できる
-                return (step(0.2, IN.texcoord.y) * step(0.2, 1.0-IN.texcoord.y) ) *(step(0.2, IN.texcoord.x) * step(0.2, 1.0-IN.texcoord.x) ) ;
-                //fixed radius = 0.4;
-                //fixed r = distance(IN.texcoord, fixed2(0.5,0.5));
-                //return step(radius, r);
+                //return (step(0.2, IN.texcoord.y) * step(0.2, 1.0-IN.texcoord.y) ) *(step(0.2, IN.texcoord.x) * step(0.2, 1.0-IN.texcoord.x) ) ;
+                //円を描画する
+                fixed radius = 0.4;
+                fixed r = distance(IN.texcoord, fixed2(0.5,0.5));
+                return step(radius, r);
             }
         ENDCG
         }
